@@ -9,17 +9,54 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{svg}
 \usepackage{graphicx}
 \usepackage[superscript, biblabel, nomove]{cite}
-\usepackage{hyperref}
-%\usepackage{todonotes}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+\usepackage{tikz}
+\usepackage{pgfplots}
 
+% Use § for sections
+\crefformat{section}{\S#2#1#3}
+\crefformat{subsection}{\S#2#1#3}
+\crefformat{subsubsection}{\S#2#1#3}
 
+\usepackage{appendix}
+
+<<<<<<< HEAD
 %\usepackage{draftwatermark}
 %\SetWatermarkText{DRAFT}
 %\SetWatermarkScale{3}
+=======
+% == Remove or comment these out for release
+%\usepackage{todonotes}
+%\usepackage{draftwatermark}
+%\SetWatermarkText{DRAFT}
+%\SetWatermarkScale{3}
+% ==
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+ 
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\newtheorem{thm}{The`orem}[section] % the main one
+\newtheorem{lemma}[thm]{Lemma}
+
+\theoremstyle{plain} % just in case the style had changed
+\newcommand{\thistheoremname}{}
+\newtheorem{genericthm}[thm]{\thistheoremname}
+\newenvironment{namedthm}[1]
+  {\renewcommand{\thistheoremname}{#1}%
+   \begin{genericthm}}
+  {\end{genericthm}}
+>>>>>>> master
 
 \begin{document}
 
@@ -28,9 +65,9 @@
 \newcommand{\NOM}{\textsc{nom}}
 
 
-\title{Havven: a stablecoin system\\ v0.3}
-\author{Samuel Brooks, Anton Jurisevic, Kain Warwick}
-\date{October 2017}
+\title{Havven: a stablecoin system\\ v0.4}
+\author{Samuel Brooks, Anton Jurisevic, Michael Spain, Kain Warwick}
+\date{December 2017}
 
 
 \begin{figure}
@@ -46,29 +83,44 @@
 \noindent There is currently no effective decentralised unit of account. Previous attempts to create
 stable tokens have either relied on significant centralisation or have been undermined by their
 complexity. We present Havven, a representative money system which seeks to achieve price
-stability with respect to an external asset. Havven is a dual-token solution, composed of a
+stability with respect to an external asset.
+
+\noindent Havven is a dual-token solution, composed of a
 stabilised exchange token and the reserve token which backs it. Users are incentivised to maintain
-this distributed reserve, and to manage the stable token supply so that it is in proportion with the
-value of the collateral. Because the collateral is encapsulated entirely within the system and
-distributed among its users, we remove the need for a trusted central authority.
-Such a stable cryptocurrency, useful for everyday economic purposes, will accelerate the adoption of
+this distributed reserve, and to manage the potential stable token supply so that it is in
+proportion with the value of the collateral. Because the collateral is encapsulated entirely within
+the system and distributed among its users, we remove the need for a trusted central authority.
+
+\noindent Such a stable cryptocurrency, useful for everyday economic purposes, will accelerate the adoption of
 distributed ledger technology.
-\end{abstract}
+\end{abstract}	
 
-%\todo[inline]{Incorporate white paper criticisms.}
+% \todo[inline]{Incorporate white paper criticisms.}
 
-%\listoftodos{}
+\pagebreak 
+
+\tableofcontents
+
+% == Remove or comment out this section for release
+% \pagebreak
+% \section{TODO}
+% \listoftodos{}
+% ==
 
 \pagebreak
 
 \input{tex/introduction}
-\input{tex/functional_description}
-\input{tex/quantitative_analysis}
-%\input{tex/qualitative_analysis}
-\input{tex/system_variables}
-\input{tex/alternative_approaches}
+%\input{tex/design_considerations}
+\input{tex/system_description}
+\input{tex/system_analysis}
 
-\bibliography{tex/citations}
-\bibliographystyle{plain}
+% \appendix
+% \appendixpage
+% \addappheadtotoc
+%\input{tex/alternative_approaches}
+%\input{tex/system_variables}
+
+%\bibliography{tex/citations}
+%\bibliographystyle{plain}
 
 \end{document}

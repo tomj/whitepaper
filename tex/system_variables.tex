@@ -1,7 +1,7 @@
 
 \section{System variables}
 
-%\todo[inline]{More complete system variable section.}
+% \todo[inline]{More complete system variable section.}
 
 \noindent What follows are the main variables of the system. Under each heading, each row will correspond to a single quantity of interest. Each row will have three columns. Leftmost, a mathematical definition of the variable; in the middle, the dimension of the quantity (which units it is measured in); and on the rightmost, a short English summary of the variable.\\
 
@@ -9,10 +9,10 @@
 
 \paragraph{Prices}
 \begin{align*}
-    P_v & \ && &(\frac{\text{\$}}{\HAV{}}) && &\text{: havven price.} \\
+    P_h & \ && &(\frac{\text{\$}}{\HAV{}}) && &\text{: havven price.} \\
     P_n & \ && &(\frac{\text{\$}}{\NOM{}}) && &\text{: nomin price.} \\
-    \pi &:= \frac{P_v}{P_n} \ && &(\frac{\NOM{}}{\HAV{}}) && &\text{: havven to nomin conversion factor.} \\
-    P_v' &= f(V_n, V_v) \cdot R && &(\frac{\text{\$}}{\NOM{} \cdot \text{sec}}) && &\text{: havven price rate of change.}
+    \pi &:= \frac{P_h}{P_n} \ && &(\frac{\NOM{}}{\HAV{}}) && &\text{: havven to nomin conversion factor.} \\
+    P_h' &= f(V_n, V_h) \cdot R && &(\frac{\text{\$}}{\NOM{} \cdot \text{sec}}) && &\text{: havven price rate of change.}
     \intertext{Here \(R\) is a risk term incorporating, for example, volatility, number of buyers versus sellers, and so on.}
 \end{align*}
 \\
@@ -48,10 +48,10 @@ S_r \ && (\frac{1}{\text{sec}}) && &\text{: average redemption rate}
 \begin{align*}
     V_n &= S_n \cdot N \ && &(\frac{\NOM{}}{\text{sec}}) && &\text{: nomin transfer rate.} \\
     V_v &= V_i + V_r \ && &(\frac{\HAV{}}{\text{sec}}) && &\text{: nomin} \leftrightarrow \text{havven conversion rate.} \\
-    V_i &= (H - H_N) \cdot S_i \ && &(\frac{\HAV{}}{\text{sec}}) && &\text{: nomin issuance rate.} \\
-    V_r &= H_N \cdot S_r \ && &(\frac{\HAV{}}{\text{sec}}) && &\text{: havven redemption rate.} \\
+    V_i &= (C - C_N) \cdot S_i \ && &(\frac{\HAV{}}{\text{sec}}) && &\text{: nomin issuance rate.} \\
+    V_r &= C_N \cdot S_r \ && &(\frac{\HAV{}}{\text{sec}}) && &\text{: havven redemption rate.} \\
     \intertext{\(V_i\) is assumed to grow as there are more free havvens in the system.}
-    \intertext{\(V_r\), by contrast, is taken to grow proportionally with the number of escrowed Havvens.}
+    \intertext{\(V_r\), by contrast, is taken to grow proportionally with the number of escrowed havvens.}
 \end{align*}
 \\
 
@@ -59,7 +59,7 @@ S_r \ && (\frac{1}{\text{sec}}) && &\text{: average redemption rate}
 \begin{align*}
 \intertext{The following fees are ratios, for example 0.1\%, levied on each transaction.}
 &F_{nx} & \ && &\text{(dimensionless)} && &\text{: nomin transfer fee} \\
-&F_{vx} & \ && &\text{(dimensionless)} && &\text{: havven transfer fee} \\
+&F_{cx} & \ && &\text{(dimensionless)} && &\text{: havven transfer fee} \\
 &F_i & \ && &\text{(dimensionless)} && &\text{: nomin issuance fee} \\
 &F_r & \ && &\text{(dimensionless)} && &\text{: havven redemption fee} \\
 % \intertext{These quantities are the aggregated fees accrued by the system per unit time.}
